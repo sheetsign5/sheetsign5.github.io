@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>九一蘑菇MV - 影像叙事,音乐视觉新现场</title>
+<meta name="description" content="九一蘑菇MV 是一家专注音乐影像与视觉叙事的视频品牌,汇聚独立音乐人、导演与创作者,持续推出原创MV、幕后纪实与社区共创内容。">
+<style>
+:root{
+  --ink:#14100e;
+  --ink-soft:#2a2320;
+  --paper:#f6f1e7;
+  --paper-2:#ede4d4;
+  --spore:#c8432c;
+  --spore-deep:#9b2f1e;
+  --moss:#3f5d3a;
+  --moss-soft:#6d8a63;
+  --gold:#c9a227;
+  --line:rgba(20,16,14,.14);
+  --shadow:0 18px 40px -18px rgba(20,16,14,.45);
+  --radius:14px;
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:"Songti SC","SimSun",Georgia,serif;line-height:1.25;letter-spacing:.02em}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+ul{list-style:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--spore);font-weight:600;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--spore)}
+.section{padding:96px 0}
+.section-head{max-width:680px;margin-bottom:52px}
+.section-head h2{font-size:clamp(28px,4vw,44px);margin:14px 0 18px}
+.section-head p{color:var(--ink-soft);font-size:16px;opacity:.85}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky;top:0;z-index:80;
+  backdrop-filter:blur(14px);
+  background:rgba(246,241,231,.82);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700}
+.brand-mark{width:38px;height:38px;flex:0 0 auto}
+.brand-text{font-family:"Songti SC",serif;font-size:19px;letter-spacing:.06em}
+.brand-text small{display:block;font-family:system-ui,sans-serif;font-size:10px;letter-spacing:.28em;color:var(--moss-soft);font-weight:500}
+.nav-links{display:flex;gap:34px;font-size:14px}
+.nav-links a{position:relative;padding:6px 0;color:var(--ink-soft)}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:2px;width:0;
+  background:var(--spore);transition:width .3s ease;
+}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--ink);color:var(--paper);
+  padding:11px 22px;border-radius:999px;font-size:13px;font-weight:600;
+  transition:transform .25s ease,background .25s ease;
+}
+.nav-cta:hover{background:var(--spore);transform:translateY(-2px)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.3s}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;overflow:hidden;padding:88px 0 0}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero-copy h1{
+  font-size:clamp(48px,8vw,96px);
+  line-height:1.02;letter-spacing:.01em;
+  margin:20px 0 24px;
+  color:var(--ink);
+}
+.hero-copy h1 em{
+  font-style:normal;color:var(--spore);
+  position:relative;white-space:nowrap;
+}
+.hero-copy h1 em::after{
+  content:"";position:absolute;left:0;right:0;bottom:6px;height:12px;
+  background:rgba(200,67,44,.18);z-index:-1;border-radius:3px;
+}
+.hero-lede{font-size:17px;color:var(--ink-soft);max-width:520px;margin-bottom:34px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 28px;border-radius:999px;font-size:14px;font-weight:600;
+  border:1px solid transparent;cursor:pointer;transition:.28s ease;
+}
+.btn-primary{background:var(--spore);color:#fff;box-shadow:0 12px 26px -12px rgba(200,67,44,.8)}
+.btn-primary:hover{background:var(--spore-deep);transform:translateY(-3px)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.hero-stats{display:flex;gap:38px;margin-top:52px;flex-wrap:wrap}
+.stat b{display:block;font-family:"Songti SC",serif;font-size:32px;line-height:1}
+.stat span{font-size:12px;letter-spacing:.14em;color:var(--moss-soft)}
+
+/* hero visual */
+.hero-visual{position:relative}
+.visual-frame{
+  position:relative;border-radius:22px;overflow:hidden;
+  background:linear-gradient(160deg,#241d19,#3f3129 60%,#5a3a2c);
+  box-shadow:var(--shadow);
+  aspect-ratio:4/4.4;
+}
+.visual-frame svg{width:100%;height:100%}
+.visual-badge{
+  position:absolute;left:18px;bottom:18px;
+  background:rgba(246,241,231,.92);backdrop-filter:blur(6px);
+  border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;
+  box-shadow:0 10px 24px -14px rgba(0,0,0,.6);
+}
+.play-dot{
+  width:34px;height:34px;border-radius:50%;background:var(--spore);
+  display:grid;place-items:center;flex:0 0 auto;
+  animation:pulse 2.4s infinite;
+}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(200,67,44,.45)}50%{box-shadow:0 0 0 12px rgba(200,67,44,0)}}
+.play-dot svg{width:12px;height:12px}
+.visual-badge b{display:block;font-size:13px;letter-spacing:.04em}
+.visual-badge small{font-size:11px;color:var(--moss-soft)}
+.float-tag{
+  position:absolute;top:18px;right:-6px;
+  background:var(--gold);color:#221a05;
+  font-size:11px;font-weight:700;letter-spacing:.16em;
+  padding:8px 14px;border-radius:999px;transform:rotate(4deg);
+  box-shadow:0 8px 18px -10px rgba(0,0,0,.6);
+}
+.marquee{
+  margin-top:64px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  overflow:hidden;background:var(--paper-2);
+}
+.marquee-track{
+  display:flex;gap:56px;white-space:nowrap;padding:16px 0;
+  animation:scroll 26s linear infinite;
+}
+.marquee-track span{font-size:13px;letter-spacing:.24em;color:var(--ink-soft);opacity:.75}
+.marquee-track span::before{content:"◆";color:var(--spore);margin-right:14px;font-size:9px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- ABOUT ---------- */
+.about{background:var(--paper-2);position:relative}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.about-copy p{color:var(--ink-soft);margin-bottom:18px;font-size:16px}
+.about-quote{
+  border-left:3px solid var(--spore);padding:6px 0 6px 22px;margin:30px 0;
+  font-family:"Songti SC",serif;font-size:20px;color:var(--ink);line-height:1.6;
+}
+.value-list{display:grid;gap:18px;margin-top:34px}
+.value-item{display:flex;gap:16px;align-items:flex-start}
+.value-num{
+  flex:0 0 auto;width:34px;height:34px;border-radius:9px;
+  background:var(--ink);color:var(--paper);
+  display:grid;place-items:center;font-size:13px;font-weight:700;
+}
+.value-item h4{font-size:16px;margin-bottom:3px}
+.value-item p{font-size:14px;color:var(--ink-soft);margin:0}
+.about-side{display:grid;gap:18px}
+.side-card{
+  background:var(--paper);border-radius:var(--radius);padding:26px;
+  border:1px solid var(--line);box-shadow:0 12px 30px -24px rgba(0,0,0,.5);
+}
+.side-card h4{font-size:14px;letter-spacing:.18em;color:var(--moss);margin-bottom:14px;text-transform:uppercase}
+.side-card .big{font-family:"Songti SC",serif;font-size:38px;line-height:1.1;color:var(--spore)}
+.side-card p{font-size:13.5px;color:var(--ink-soft);margin-top:8px}
+.side-card.dark{background:var(--ink);color:var(--paper);border-color:transparent}
+.side-card.dark h4{color:var(--gold)}
+.side-card.dark p{color:rgba(246,241,231,.72)}
+
+/* ---------- WORKS ---------- */
+.works{background:var(--paper)}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.work-card{
+  border-radius:var(--radius);overflow:hidden;background:#fff;
+  border:1px solid var(--line);box-shadow:0 14px 34px -28px rgba(0,0,0,.6);
+  transition:transform .35s ease,box-shadow .35s ease;cursor:pointer;
+  display:flex;flex-direction:column;
+}
+.work-card:hover{transform:translateY(-6px);box-shadow:0 26px 48px -26px rgba(0,0,0,.5)}
+.work-thumb{position:relative;aspect-ratio:16/10;overflow:hidden}
+.work-thumb svg{width:100%;height:100%;transition:transform .6s ease}
+.work-card:hover .work-thumb svg{transform:scale(1.06)}
+.work-type{
+  position:absolute;top:12px;left:12px;z-index:2;
+  background:rgba(20,16,14,.78);color:var(--paper);
+  font-size:11px;letter-spacing:.14em;padding:5px 11px;border-radius:999px;
+  backdrop-filter:blur(4px);
+}
+.work-dur{
+  position:absolute;bottom:12px;right:12px;z-index:2;
+  background:rgba(246,241,231,.9);color:var(--ink);
+  font-size:11px;font-weight:600;padding:3px 9px;border-radius:6px;
+}
+.work-body{padding:20px 22px 24px;flex:1;display:flex;flex-direction:column}
+.work-body h3{font-size:19px;margin-bottom:8px}
+.work-body p{font-size:13.5px;color:var(--ink-soft);flex:1}
+.work-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);
+  font-size:12px;color:var(--moss-soft);letter-spacing:.06em;
+}
+.work-meta b{color:var(--spore);font-weight:700}
+
+/* ---------- SERIES ---------- */
+.series{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.series::before{
+  content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;
+  border-radius:50%;background:radial-gradient(circle,rgba(200,67,44,.35),transparent 70%);
+}
+.series .section-head h2{color:var(--paper)}
+.series .section-head p{color:rgba(246,241,231,.7)}
+.series-list{display:grid;gap:0;border-top:1px solid rgba(246,241,231,.16)}
+.series-row{
+  display:grid;grid-template-columns:78px 1.2fr 1fr 160px;
+  gap:26px;align-items:center;
+  padding:26px 8px;border-bottom:1px solid rgba(246,241,231,.16);
+  transition:background .3s ease,padding-left .3s ease;
+}
+.series-row:hover{background:rgba(246,241,231,.04);padding-left:18px}
+.series-ep{font-family:"Songti SC",serif;font-size:26px;color:var(--spore)}
+.series-row h4{font-size:17px;color:var(--paper)}
+.series-row .desc{font-size:13.5px;color:rgba(246,241,231,.62)}
+.series-row .tag{font-size:11px;letter-spacing:.16em;color:var(--gold);text-align:right}
+
+/* ---------- PROCESS ---------- */
+.process{background:var(--paper-2)}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.step{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 24px;position:relative;transition:transform .3s ease;
+}
+.step:hover{transform:translateY(-5px)}
+.step-num{
+  font-family:"Songti SC",serif;font-size:44px;color:var(--spore);
+  opacity:.28;line-height:1;margin-bottom:16px;
+}
+.step h4{font-size:16px;margin-bottom:10px}
+.step p{font-size:13.5px;color:var(--ink-soft)}
+
+/* ---------- COMMUNITY ---------- */
+.community{background:var(--paper)}
+.community-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:52px}
+.testimonials{display:grid;gap:20px}
+.quote-card{
+  background:var(--paper-2);border-radius:var(--radius);padding:26px 28px;
+  border:1px solid var(--line);position:relative;
+}
+.quote-card::before{
+  content:"“";position:absolute;top:6px;left:18px;
+  font-family:Georgia,serif;font-size:64px;color:var(--spore);opacity:.22;line-height:1;
+}
+.quote-card p{font-size:15px;color:var(--ink-soft);margin-bottom:16px;position:relative;z-index:1}
+.quote-who{display:flex;align-items:center;gap:12px}
+.avatar{
+  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  color:#fff;font-size:14px;font-weight:700;flex:0 0 auto;
+}
+.quote-who b{display:block;font-size:14px}
+.quote-who small{font-size:12px;color:var(--moss-soft)}
+.stats-panel{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.stat-box{
+  background:var(--ink);color:var(--paper);border-radius:var(--radius);
+  padding:26px 22px;
+}
+.stat-box:nth-child(2){background:var(--spore)}
+.stat-box:nth-child(3){background:var(--moss)}
+.stat-box:nth-child(4){background:var(--gold);color:#221a05}
+.stat-box b{display:block;font-family:"Songti SC",serif;font-size:36px;line-height:1.1}
+.stat-box span{font-size:12px;letter-spacing:.1em;opacity:.82;display:block;margin-top:6px}
+
+/* ---------- JOIN ---------- */
+.join{
+  background:linear-gradient(140deg,var(--spore) 0%,var(--spore-deep) 55%,#6e1f12 100%);
+  color:#fff;text-align:center;position:relative;overflow:hidden;
+}
+.join::before,.join::after{
+  content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.14);
+}
+.join::before{width:520px;height:520px;left:-180px;top:-200px}
+.join::after{width:360px;height:360px;right:-120px;bottom:-160px}
+.join .wrap{position:relative;z-index:1}
+.join h2{font-size:clamp(30px,4.4vw,50px);margin:16px 0 18px;color:#fff}
+.join p{max-width:560px;margin:0 auto 36px;color:rgba(255,255,255,.82);font-size:16px}
+.join-form{display:flex;gap:10px;max-width:520px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.join-form input{
+  flex:1;min-width:220px;padding:15px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.35);
+  background:rgba(255,255,255,.12);color:#fff;font-size:14px;outline:none;
+  transition:border .25s ease,background .25s ease;
+}
+.join-form input::placeholder{color:rgba(255,255,255,.6)}
+.join-form input:focus{border-color:#fff;background:rgba(255,255,255,.2)}
+.join-form button{
+  padding:15px 30px;border-radius:999px;border:0;background:#fff;color:var(--spore-deep);
+  font-weight:700;font-size:14px;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;
+}
+.join-form button:hover{transform:translateY(-2px);box-shadow:0 14px 26px -14px rgba(0,0,0,.6)}
+.join-note{margin-top:18px;font-size:12px;color:rgba(255,255,255,.6);letter-spacing:.06em}
+
+/* ---------- FOOTER ---------- */
+.footer{background:var(--ink);color:rgba(246,241,231,.78);padding:70px 0 30px}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;margin-bottom:52px}
+.footer .brand-text{color:var(--paper)}
+.footer-about{font-size:13.5px;margin-top:18px;max-width:300px;line-height:1.8;color:rgba(246,241,231,.6)}
+.footer-col h5{font-size:12px;letter-spacing:.2em;color:var(--gold);margin-bottom:18px;text-transform:uppercase}
+.footer-col a{display:block;font-size:13.5px;padding:6px 0;color:rgba(246,241,231,.72);transition:color .25s ease}
+.footer-col a:hover{color:#fff}
+.footer-bottom{
+  border-top:1px solid rgba(246,241,231,.14);padding-top:24px;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-size:12px;color:rgba(246,241,231,.5);letter-spacing:.06em;
+}
+.socials{display:flex;gap:12px;margin-top:20px}
+.socials a{
+  width:36px;height:36px;border-radius:50%;border:1px solid rgba(246,241,231,.24);
+  display:grid;place-items:center;transition:.25s ease;
+}
+.socials a:hover{background:var(--spore);border-color:var(--spore)}
+.socials svg{width:16px;height:16px;fill:currentColor}
+
+/* ---------- TOAST ---------- */
+.toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,120%);
+  background:var(--ink);color:var(--paper);padding:14px 26px;border-radius:999px;
+  font-size:14px;z-index:200;transition:transform .4s cubic-bezier(.2,.9,.3,1.2);
+  box-shadow:0 20px 40px -18px rgba(0,0,0,.7);
+}
+.toast.show{transform:translate(-50%,0)}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .hero-visual{max-width:460px;margin:0 auto}
+  .about-grid,.community-grid{grid-template-columns:1fr;gap:40px}
+  .work-grid{grid-template-columns:1fr 1fr}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .series-row{grid-template-columns:60px 1fr;gap:16px}
+  .series-row .desc,.series-row .tag{grid-column:2}
+  .series-row .tag{text-align:left}
+}
+@media(max-width:680px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:block}
+  .nav-links.open{
+    display:flex;position:absolute;top:70px;left:0;right:0;
+    flex-direction:column;background:var(--paper);padding:18px 24px 26px;
+    border-bottom:1px solid var(--line);gap:16px;
+  }
+  .section{padding:66px 0}
+  .work-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr}
+  .stats-panel{grid-template-columns:1fr 1fr}
+  .hero-stats{gap:24px}
+  .hero-copy h1{font-size:clamp(42px,13vw,72px)}
+  .footer-grid{grid-template-columns:1fr}
+  .about-quote{font-size:17px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="九一蘑菇MV 首页">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" fill="#14100e"/>
+        <path d="M8 22c0-6.6 5.4-11 12-11s12 4.4 12 11" fill="#c8432c"/>
+        <rect x="15" y="20" width="10" height="11" rx="3" fill="#f6f1e7"/>
+        <circle cx="16" cy="15" r="1.6" fill="#f6f1e7"/>
+        <circle cx="24" cy="14" r="1.4" fill="#f6f1e7"/>
+      </svg>
+      <span class="brand-text">九一蘑菇MV<small>JIUYI MUSHROOM MV</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">品牌</a>
+      <a href="#works">作品</a>
+      <a href="#series">企划</a>
+      <a href="#process">流程</a>
+      <a href="#community">社区</a>
+      <a href="#join">加入</a>
+    </nav>
+    <a class="nav-cta" href="#join">投递作品 <span>↗</span></a>
+    <button class="burger" id="burger" aria-label="打开菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">音乐影像 · 视觉叙事厂牌</span>
+      <h1>九一<em>蘑菇</em>MV</h1>
+      <p class="hero-lede">
+        我们把一首歌，拍成一段能被反复观看的影像。九一蘑菇MV 连接独立音乐人、导演与影像创作者，
+        用镜头记录旋律背后的情绪、土地与人群，让每一次播放都成为一次真实的相遇。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#works">浏览原创作品 <span>→</span></a>
+        <a class="btn btn-ghost" href="#about">了解品牌故事</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>312</b><span>已发布 MV</span></div>
+        <div class="stat"><b>86</b><span>合作音乐人</span></div>
+        <div class="stat"><b>1.4亿</b><span>累计播放</span></div>
+        <div class="stat"><b>27</b><span>签约导演</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="visual-frame">
+        <svg viewBox="0 0 400 440" aria-label="九一蘑菇MV 主视觉插画">
+          <defs>
+            <linearGradient id="gsky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#241d19"/>
+              <stop offset=".55" stop-color="#4a3226"/>
+              <stop offset="1" stop-color="#7a4a33"/>
+            </linearGradient>
+            <radialGradient id="glow" cx=".5" cy=".4" r=".6">
+              <stop offset="0" stop-color="#f2b23c" stop-opacity=".9"/>
+              <stop offset="1" stop-color="#f2b23c" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="gcap" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#d95336"/>
+              <stop offset="1" stop-color="#8e2a19"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="440" fill="url(#gsky)"/>
+          <circle cx="290" cy="110" r="120" fill="url(#glow)"/>
+          <circle cx="290" cy="110" r="46" fill="#f4d58a" opacity=".92"/>
+          <g opacity=".35" fill="#f6f1e7">
+            <circle cx="60" cy="70" r="1.6"/><circle cx="110" cy="40" r="1.2"/>
+            <circle cx="180" cy="80" r="1.4"/><circle cx="240" cy="46" r="1.1"/>
+            <circle cx="350" cy="60" r="1.5"/><circle cx="320" cy="180" r="1.2"/>
+          </g>
+          <!-- 山丘 -->
+          <path d="M0 320 Q80 250 170 300 T400 280 V440 H0 Z" fill="#2b211b"/>
+          <path d="M0 350 Q110 300 210 340 T400 320 V440 H0 Z" fill="#1e1713"/>
+          <!-- 蘑菇主体 -->
+          <g transform="translate(160 210)">
+            <ellipse cx="40" cy="26" rx="66" ry="30" fill="#f6f1e7" opacity=".1"/>
+            <path d="M-52 22 C-52 -22 -14 -50 40 -50 C94 -50 132 -22 132 22 C132 30 126 34 118 34 H-30 C-38 34 -52 30 -52 22 Z" fill="url(#gcap)"/>
+            <ellipse cx="8" cy="-16" rx="9" ry="6" fill="#f6f1e7" opacity=".9"/>
+            <ellipse cx="62" cy="-30" rx="7" ry="5" fill="#f6f1e7" opacity=".85"/>
+            <ellipse cx="96" cy="-2" rx="6" ry="4.4" fill="#f6f1e7" opacity=".8"/>
+            <ellipse cx="38" cy="4" rx="5" ry="3.6" fill="#f6f1e7" opacity=".7"/>
+            <path d="M18 30 C16 64 16 86 18 104 C20 116 64 116 66 104 C68 86 68 64 66 30 Z" fill="#f6f1e7"/>
+            <path d="M24 40 C30 52 50 52 56 40" stroke="#d9cdb8" stroke-width="2" fill="none"/>
+          </g>
+          <!-- 声波 -->
+          <g opacity=".5" stroke="#f4d58a" stroke-width="2" fill="none">
+            <path d="M40 400 Q70 380 100 400 T160 400"/>
+            <path d="M240 410 Q270 390 300 410 T360 410"/>
+          </g>
+        </svg>
+      </div>
+      <div class="float-tag">NOW FILMING · 2024</div>
+      <div class="visual-badge">
+        <span class="play-dot">
+          <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1 L11 6 L2 11 Z" fill="#fff"/></svg>
+        </span>
+        <span><b>《孢子夜行》官方 MV</b><small>导演剪辑版 · 04:38</small></span>
+      </div>
+    </div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track" id="marqueeTrack">
+      <span>原创 MV 企划</span><span>巡演纪录</span><span>幕后花絮</span><span>影像工作坊</span>
+      <span>音乐人社区</span><span>短片竞赛</span><span>线下放映</span><span>常驻导演计划</span>
+      <span>原创 MV 企划</span><span>巡演纪录</span><span>幕后花絮</span><span>影像工作坊</span>
+      <span>音乐人社区</span><span>短片竞赛</span><span>线下放映</span><span>常驻导演计划</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy reveal">
+      <span class="eyebrow">关于品牌</span>
+      <h2>在旋律与画面之间<br>种下一片孢子的森林</h2>
+      <p>
+        九一蘑菇MV 诞生于一次深夜的排练房。那时几个人围着一首歌，试着为它找到属于画面的表达——
+        于是有了第一支自己拍的 MV。此后，我们把这件小事做成了持续的事。
+      </p>
+      <p>
+        我们不是传统意义上的制作公司，也不只是内容频道。九一蘑菇MV 是一个以音乐影像为核心的创作共识体：
+        音乐人带来声音，导演带来镜头，观众带来回响。三者循环，让作品在社区里持续生长。
+      </p>
+      <blockquote class="about-quote">
+        “一首歌值得被认真地看见。我们做的，就是把听觉里的模糊，变成画面里的具体。”
+      </blockquote>
+      <div class="value-list">
+        <div class="value-item">
+          <span class="value-num">01</span>
+          <div><h4>以歌为本</h4><p>所有影像都从旋律与歌词出发，不为炫技而拍摄，只为让音乐被更完整地听见。</p></div>
+        </div>
+        <div class="value-item">
+          <span class="value-num">02</span>
+          <div><h4>长期主义</h4><p>与音乐人保持跨作品、跨年份的合作关系，让风格在时间里沉淀而非速成。</p></div>
+        </div>
+        <div class="value-item">
+          <span class="value-num">03</span>
+          <div><h4>社区共创</h4><p>许多企划由观众投票、众筹与投稿共同完成，影像因此拥有真实的来处。</p></div>
+        </div>
+        <div class="value-item">
+          <span class="value-num">04</span>
+          <div><h4>开放档案</h4><p>分镜、调色参考与幕后素材部分公开，作为行业与爱好者的共享学习资料。</p></div>
+        </div>
+      </div>
+    </div>
+    <aside class="about-side reveal">
+      <div class="side-card">
+        <h4>Brand</h4>
+        <div class="big">九一蘑菇</div>
+        <p>读作“Jiu Yi Mushroom”。名字来自第一次拍摄现场长出的一丛野蘑菇，也来自“孢子扩散”的意象——小而轻，却能飘很远。</p>
+      </div>
+      <div class="side-card dark">
+        <h4>2024 年度</h4>
+        <div class="big" style="color:#f4d58a">48 支</div>
+        <p>本年度已上线的原创音乐影像作品，覆盖流行、民谣、后摇、电子与实验音乐等类型。</p>
+      </div>
+      <div class="side-card">
+        <h4>常驻基地</h4>
+        <div class="big">杭州 · 蘑菇棚</div>
+        <p>兼具录音、粗剪与小型放映功能的复合空间，每月举办一次开放日，向社区创作者开放。</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= WORKS ================= -->
+<section class="section works" id="works">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">精选作品</span>
+      <h2>近期出品的影像</h2>
+      <p>每一支作品都由音乐人与导演共同署名。以下为近期上线的部分原创 MV，包含剧情、纪录与实验短片三类方向。</p>
+    </div>
+    <div class="work-grid" id="workGrid">
+      <!-- cards injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERIES ================= -->
+<section class="section series" id="series">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="color:#f4d58a">品牌企划</span>
+      <h2>持续更新的影像企划</h2>
+      <p>除了单支 MV，我们以企划形式进行长期创作。每个企划都有独立的世界观与更新节奏，欢迎追更与参与。</p>
+    </div>
+    <div class="series-list reveal">
+      <div class="series-row">
+        <span class="series-ep">EP·01</span>
+        <h4>孢子夜行</h4>
+        <span class="desc">在城市的夜晚寻找发光的声音，每集由一位音乐人带路，拍摄于真实街道。</span>
+        <span class="tag">连载中 / 12 集</span>
+      </div>
+      <div class="series-row">
+        <span class="series-ep">EP·02</span>
+        <h4>一镜一歌</h4>
+        <span class="desc">只用一个长镜头完成的现场演出纪录，考验调度，也保留最真实的呼吸。</span>
+        <span class="tag">更新中 / 8 集</span>
+      </div>
+      <div class="series-row">
+        <span class="series-ep">EP·03</span>
+        <h4>地下根系</h4>
+        <span class="desc">走进独立音乐人的排练室与故乡，用纪录片方式还原作品背后的生活现场。</span>
+        <span class="tag">已完结 / 6 集</span>
+      </div>
+      <div class="series-row">
+        <span class="series-ep">EP·04</span>
+        <h4>素人导演计划</h4>
+        <span class="desc">向社区公开征集脚本与分镜，每年选出三支由首次执导者完成的 MV。</span>
+        <span class="tag">征集中 / 年度</span>
+      </div>
+      <div class="series-row">
+        <span class="series-ep">EP·05</span>
+        <h4>调色台日记</h4>
+        <span class="desc">幕后轻纪录，展示一支 MV 从素材到成片的调色、混音与字幕全流程。</span>
+        <span class="tag">连载中 / 20 集</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="section process" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">合作流程</span>
+      <h2>从一首歌到一支片</h2>
+      <p>我们与音乐人的合作遵循清晰但不过度流程化的路径，既保证专业交付，也保留现场即兴的空间。</p>
+    </div>
+    <div class="process-grid">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h4>听歌与对话</h4>
+        <p>先完整地听，再聊创作动机、想表达的场景与不想重复的套路。这一步通常比拍摄更重要。</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <h4>概念与分镜</h4>
+        <p>导演提出视觉概念，输出情绪板与分镜脚本，与音乐人共同确认影像的叙事重心。</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <h4>拍摄与现场</h4>
+        <p>按分镜执行，同时为现场意外保留余地。灯光、美术与表演都服务于音乐本身。</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <h4>后期与发布</h4>
+        <p>剪辑、调色、混音与字幕一体化完成，并在品牌频道与音乐人渠道同步上线与推广。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMMUNITY ================= -->
+<section class="section community" id="community">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">社区声音</span>
+      <h2>作品之外，还有人群</h2>
+      <p>九一蘑菇MV 的社区由音乐人、影像工作者与长期观众共同构成。以下是一些真实的合作反馈与社区数据。</p>
+    </div>
+    <div class="community-grid">
+      <div class="testimonials reveal" id="testimonials">
+        <!-- injected -->
+      </div>
+      <div class="stats-panel reveal">
+        <div class="stat-box"><b>12,600+</b><span>社区注册创作者</span></div>
+        <div class="stat-box"><b>340</b><span>年度投稿作品</span></div>
+        <div class="stat-box"><b>18</b><span>合作城市放映</span></div>
+        <div class="stat-box"><b>96%</b><span>合作方续约意愿</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JOIN ================= -->
+<section class="section join" id="join">
+  <div class="wrap">
+    <span class="eyebrow" style="color:#f4d58a;justify-content:center">加入我们</span>
+    <h2>让你的歌，被看见一次</h2>
+    <p>无论你是音乐人、导演、摄影、剪辑还是单纯热爱影像的观众，都欢迎留下联系方式。我们会认真读完每一封来信。</p>
+    <form class="join-form" id="joinForm" novalidate>
+      <input type="text" id="joinName" placeholder="你的名字 / 团队名" aria-label="名字">
+      <input type="email" id="joinEmail" placeholder="邮箱地址" aria-label="邮箱">
+      <button type="submit">提交意向</button>
+    </form>
+    <p class="join-note">我们通常在 3 个工作日内回复 · 不收取任何投递费用</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#top">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+            <circle cx="20" cy="20" r="19" fill="#f6f1e7"/>
+            <path d="M8 22c0-6.6 5.4-11 12-11s12 4.4 12 11" fill="#c8432c"/>
+            <rect x="15" y="20" width="10" height="11" rx="3" fill="#14100e"/>
+            <circle cx="16" cy="15" r="1.6" fill="#14100e"/>
+            <circle cx="24" cy="14" r="1.4" fill="#14100e"/>
+          </svg>
+          <span class="brand-text">九一蘑菇MV<small>JIUYI MUSHROOM MV</small></span>
+        </a>
+        <p class="footer-about">以音乐影像为核心的创作共识体。我们用镜头为旋律留下证据，让每一次播放都成为一次真实的相遇。</p>
+        <div class="socials">
+          <a href="#" aria-label="视频平台"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></a>
+          <a href="#" aria-label="社交平台"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2zm0-8h-2V7h2z"/></svg></a>
+          <a href="#" aria-label="音乐平台"><svg viewBox="0 0 24 24"><path d="M12 3v10.6a3.5 3.5 0 1 0 2 3.2V7h4V3z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>内容</h5>
+        <a href="#works">原创 MV</a>
+        <a href="#series">企划连载</a>
+        <a href="#community">社区精选</a>
+        <a href="#process">幕后纪录</a>
+      </div>
+      <div class="footer-col">
+        <h5>合作</h5>
+        <a href="#join">音乐人投稿</a>
+        <a href="#join">导演合作</a>
+        <a href="#join">品牌联名</a>
+        <a href="#process">制作流程</a>
+      </div>
+      <div class="footer-col">
+        <h5>关于</h5>
+        <a href="#about">品牌故事</a>
+        <a href="#community">社区数据</a>
+        <a href="#join">加入我们</a>
+        <a href="#top">返回顶部</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 九一蘑菇MV · 保留所有权利</span>
+      <span>影像有版权，引用请注明出处 · 京ICP备00000000号</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">已收到你的信息，我们会尽快联系你。</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------- 作品数据 ---------- */
+  var works = [
+    {
+      title:'孢子夜行',
+      type:'剧情MV',
+      dur:'04:38',
+      desc:'一支关于城市夜归与微弱光源的作品，蘑菇作为意象反复出现，指向生长与依附。',
+      artist:'林野乐队',
+      year:'2024',
+      color:['#3d2a22','#a83f27','#f4d58a']
+    },
+    {
+      title:'一镜到底的房间',
+      type:'实验短片',
+      dur:'06:12',
+      desc:'全片一个长镜头完成，镜头随歌声穿过六个房间，记录一名歌手与自己的对话。',
+      artist:'沈叙',
+      year:'2024',
+      color:['#1f2a24','#3f5d3a','#c9a227']
+    },
+    {
+      title:'根系来信',
+      type:'纪录MV',
+      dur:'05:04',
+      desc:'跟随音乐人回到南方故乡，用纪录片手法拍摄一条河、一座桥与一首写了十年的歌。',
+      artist:'东山小队',
+      year:'2023',
+      color:['#2a2320','#7a4a33','#e8d9bd']
+    },
+    {
+      title:'发光的蘑菇',
+      type:'概念MV',
+      dur:'03:56',
+      desc:'在暗场里用荧光装置搭建的微型森林，音乐与光影同步触发，是一次视听联觉尝试。',
+      artist:'黄澄',
+      year:'2024',
+      color:['#141414','#2e6b5c','#8fd9b6']
+    },
+    {
+      title:'巡演在雨季',
+      type:'巡演纪录',
+      dur:'08:22',
+      desc:'记录一次跨五城的巡演，摄像机跟随乐队上台下台，捕捉舞台之外的沉默时刻。',
+      artist:'北纬三十度',
+      year:'2023',
+      color:['#1c1f2a','#3a4a7a','#d9e0f0']
+    },
+    {
+      title:'像素之外',
+      type:'动画MV',
+      dur:'04:02',
+      desc:'融合二维手绘与像素动画，把一首电子曲目翻译成一场穿越屏幕的旅行。',
+      artist:'陈竹',
+      year:'2024',
+      color:['#1a1420','#5a3a7a','#e0b3f0']
+    }
+  ];
+
+  var workGrid = document.getElementById('workGrid');
+  works.forEach(function(w, i){
+    var card = document.createElement('article');
+    card.className = 'work-card reveal';
+    card.style.transitionDelay = (i % 3) * 90 + 'ms';
+    var svg = workThumb(w.color, i);
+    card.innerHTML =
+      '<div class="work-thumb">' + svg +
+        '<span class="work-type">' + w.type + '</span>' +
+        '<span class="work-dur">' + w.dur + '</span>' +
+      '</div>' +
+      '<div class="work-body">' +
+        '<h3>' + w.title + '</h3>' +
+        '<p>' + w.desc + '</p>' +
+        '<div class="work-meta"><span>' + w.artist + '</span><b>' + w.year + '</b></div>' +
+      '</div>';
+    card.addEventListener('click', function(){
+      showToast('《' + w.title + '》正在档案库中播放 · ' + w.dur);
+    });
+    workGrid.appendChild(card);
+  });
+
+  /* 生成 SVG 缩略图 */
+  function workThumb(colors, seed){
+    var c1 = colors[0], c2 = colors[1], c3 = colors[2];
+    var uid = 'wg' + seed;
+    var shapes = '';
+    if(seed % 3 === 0){
+      shapes =
+        '<circle cx="118" cy="64" r="34" fill="' + c3 + '" opacity=".9"/>' +
+        '<path d="M0 128 Q46 92 96 118 T240 104 V150 H0 Z" fill="' + c2 + '" opacity=".85"/>' +
+        '<path d="M0 140 Q70 118 130 136 T240 126 V150 H0 Z" fill="' + c1 + '"/>' +
+        '<rect x="88" y="92" width="10" height="26" rx="4" fill="' + c1 + '"/>';
+    } else if(seed % 3 === 1){
+      shapes =
+        '<rect x="0" y="0" width="240" height="150" fill="' + c1 + '"/>' +
+        '<rect x="20" y="26" width="80" height="98" rx="6" fill="' + c2 + '" opacity=".9"/>' +
+        '<rect x="118" y="48" width="102" height="76" rx="6" fill="' + c3 + '" opacity=".75"/>' +
+        '<circle cx="60" cy="60" r="14" fill="' + c3 + '"/>' +
+        '<path d="M132 104 L170 60 L208 104 Z" fill="' + c2 + '"/>';
+    } else {
+      shapes =
+        '<path d="M0 0 H240 V150 H0 Z" fill="' + c1 + '"/>' +
+        '<g stroke="' + c3 + '" stroke-width="2" fill="none" opacity=".9">' +
+          '<path d="M10 118 Q40 88 70 118 T130 118 T190 118 T250 118"/>' +
+          '<path d="M0 96 Q40 66 80 96 T160 96 T240 96"/>' +
+        '</g>' +
+        '<circle cx="190" cy="48" r="26" fill="' + c2 + '"/>' +
+        '<circle cx="190" cy="48" r="12" fill="' + c3 + '"/>';
+    }
+    return '<svg viewBox="0 0 240 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+      '<rect width="240" height="150" fill="' + c1 + '"/>' + shapes + '</svg>';
+  }
+
+  /* ---------- 社区反馈 ---------- */
+  var quotes = [
+    {
+      text:'第一次把 demo 交给九一蘑菇MV 时其实很忐忑。他们没有急着谈预算，而是先问我想让这首歌被谁听见。成片出来那天，我在公司楼下看哭了。',
+      name:'阿禾',
+      role:'独立唱作人',
+      color:'#c8432c',
+      initial:'禾'
+    },
+    {
+      text:'作为导演，最难得的是这里尊重偶发的现场感。分镜是骨架，但真正打动人的往往是拍摄时突然出现的那一束光，他们会让它留下来。',
+      name:'程野',
+      role:'常驻导演',
+      color:'#3f5d3a',
+      initial:'程'
+    },
+    {
+      text:'我是在社区放映活动上认识他们的。后来参加了素人导演计划，第一次拍 MV 就是在这里完成的，从脚本到调色都有人陪着改。',
+      name:'小林',
+      role:'社区创作者',
+      color:'#7a4a33',
+      initial:'林'
+    },
+    {
+      text:'作为合作品牌方，我们看重的不是流量数值，而是作品能不能被记住。九一蘑菇MV 的交付质量稳定，沟通也坦诚，续约是自然的结果。',
+      name:'周女士',
+      role:'品牌合作方',
+      color:'#c9a227',
+      initial:'周'
+    }
+  ];
+
+  var tWrap = document.getElementById('testimonials');
+  quotes.forEach(function(q, i){
+    var card = document.createElement('div');
+    card.className = 'quote-card';
+    card.style.transitionDelay = i * 80 + 'ms';
+    card.innerHTML =
+      '<p>' + q.text + '</p>' +
+      '<div class="quote-who">' +
+        '<span class="avatar" style="background:' + q.color + '">' + q.initial + '</span>' +
+        '<span><b>' + q.name + '</b><small>' + q.role + '</small></span>' +
+      '</div>';
+    tWrap.appendChild(card);
+  });
+
+  /* ---------- 移动端菜单 ---------- */
+  var burger = document.getElementById('burger');
+  var navLinks = document.getElementById('navLinks');
+  if(burger){
+    burger.addEventListener('click', function(){
+      navLinks.classList.toggle('open');
+    });
+    navLinks.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){ navLinks.classList.remove('open'); }
+    });
+  }
+
+  /* ---------- 表单 ---------- */
+  var form = document.getElementById('joinForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('joinName').value.trim();
+    var email = document.getElementById('joinEmail').value.trim();
+    if(!name){ showToast('请先填写你的名字或团队名'); document.getElementById('joinName').focus(); return; }
+    var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if(!ok){ showToast('请填写有效的邮箱地址'); document.getElementById('joinEmail').focus(); return; }
+    showToast('已收到你的意向，我们会在 3 个工作日内回复。');
+    form.reset();
+  });
+
+  /* ---------- Toast ---------- */
+  var toastEl = document.getElementById('toast');
+  var toastTimer = null;
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 3000);
+  }
+
+  /* ---------- 滚动显现 ---------- */
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 平滑锚点补偿固定导航 ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if(id.length > 1){
+        var target = document.querySelector(id);
+        if(target){
+          e.preventDefault();
+          var top = target.getBoundingClientRect().top + window.pageYOffset - 70;
+          window.scrollTo({ top: top, behavior:'smooth' });
+        }
+      }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
